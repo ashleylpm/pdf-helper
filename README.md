@@ -10,7 +10,9 @@ A simple, private PDF tool that runs entirely in your browser. Files never leave
 
 ## Use it
 
-Open `index.html` in any modern browser, or host it with GitHub Pages (Settings → Pages → Deploy from branch → `main` / root).
+**[Open in browser](https://ashleylpm.github.io/pdf-helper/)**
+
+Or download `index.html` and open it locally in any modern browser.
 
 ## Limits
 
