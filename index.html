@@ -39,24 +39,24 @@ html { scroll-padding-top: env(safe-area-inset-top, 0px); }
 body {
   margin: 0; background: var(--bg); color: var(--ink);
   font-family: "Atkinson Hyperlegible", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
-  font-size: 19px; line-height: 1.5; -webkit-text-size-adjust: 100%;
+  font-size: 22px; line-height: 1.5; -webkit-text-size-adjust: 100%;
 }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
 .wrap { max-width: 920px; margin: 0 auto; padding: 28px 20px 80px; }
-header h1 { font-size: 2.1rem; line-height: 1.15; margin: 0 0 6px; letter-spacing: -0.01em; }
+header h1 { font-size: 2.6rem; line-height: 1.15; margin: 0 0 6px; letter-spacing: -0.01em; }
 header p { margin: 0; color: var(--muted); max-width: 36em; }
 .lock { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; font-size: 0.9rem; color: var(--muted); }
 .lock svg { width: 18px; height: 18px; flex: none; }
 .btn {
-  font: inherit; font-weight: 700; cursor: pointer;
-  min-height: 52px; padding: 10px 22px; border-radius: 14px;
+  font: inherit; font-size: 1.1rem; font-weight: 700; cursor: pointer;
+  min-height: 64px; padding: 14px 28px; border-radius: 16px;
   border: 2px solid var(--primary); background: var(--surface); color: var(--primary);
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
 }
 .btn svg { width: 20px; height: 20px; }
 .btn.primary { background: var(--primary); color: var(--primary-ink); }
 .btn.primary:hover:not(:disabled) { background: var(--primary-hover); border-color: var(--primary-hover); }
-.btn.sm { min-height: 40px; padding: 6px 16px; font-size: 0.95rem; border-radius: 10px; }
+.btn.sm { min-height: 54px; padding: 10px 22px; font-size: 1.05rem; border-radius: 14px; }
 .btn:disabled { opacity: 0.45; cursor: not-allowed; }
 .btn:focus-visible { outline: 4px solid var(--accent); outline-offset: 2px; }
 .back-btn {
@@ -65,8 +65,8 @@ header p { margin: 0; color: var(--muted); max-width: 36em; }
 }
 .back-btn:focus-visible { outline: 3px solid var(--accent); border-radius: 6px; }
 .row-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
-.hint { margin: 0 0 14px; color: var(--muted); font-size: 1rem; }
-.status { margin: 10px 0 0; font-size: 1rem; min-height: 1.5em; }
+.hint { margin: 0 0 14px; color: var(--muted); font-size: 1.1rem; }
+.status { margin: 10px 0 0; font-size: 1.1rem; min-height: 1.5em; }
 .status.ok { color: var(--ok); font-weight: 700; }
 .status.err { color: var(--danger); font-weight: 700; }
 .banner { margin-top: 20px; padding: 14px 18px; border-radius: 14px; background: var(--accent-soft); border: 1px solid var(--accent); }
@@ -91,13 +91,13 @@ header p { margin: 0; color: var(--muted); max-width: 36em; }
 
 /* Page grid */
 .pages {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 14px;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 18px;
   margin: 0 0 8px;
 }
 .page {
   position: relative; cursor: pointer; background: var(--surface);
-  border: 2px solid var(--line); border-radius: 14px; padding: 8px 8px 6px;
-  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  border: 2px solid var(--line); border-radius: 18px; padding: 12px 12px 8px;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
   transition: border-color .15s;
 }
 .page:hover { border-color: var(--primary); }
@@ -105,19 +105,18 @@ header p { margin: 0; color: var(--muted); max-width: 36em; }
 .page.dragging { opacity: 0.4; }
 .page.drag-over { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary); }
 .page .thumb { width: 100%; height: auto; aspect-ratio: 3 / 4; }
-.page .label { font-size: 0.88rem; font-weight: 700; color: var(--muted); }
+.page .label { font-size: 1rem; font-weight: 700; color: var(--muted); }
 .page-del {
   position: absolute; top: 4px; right: 4px; z-index: 2;
-  width: 24px; height: 24px; border-radius: 50%;
+  width: 36px; height: 36px; border-radius: 50%;
   border: 0; background: var(--danger); color: #fff;
-  font-size: 1rem; line-height: 1; cursor: pointer;
+  font-size: 1.3rem; line-height: 1; cursor: pointer;
   display: grid; place-items: center;
-  opacity: 0; transition: opacity .15s;
+  opacity: 1;
 }
-.page:hover .page-del { opacity: 1; }
 .page-del:focus-visible { opacity: 1; outline: 2px solid var(--accent); }
 .thumb {
-  width: 72px; height: 96px; border-radius: 8px; overflow: hidden;
+  width: 100px; height: 133px; border-radius: 10px; overflow: hidden;
   background: #fff; border: 1px solid var(--line); display: grid; place-items: center;
 }
 .thumb img, .thumb canvas { width: 100%; height: 100%; object-fit: contain; display: block; }
@@ -130,9 +129,24 @@ header p { margin: 0; color: var(--muted); max-width: 36em; }
 /* Replace panel */
 .replace-panel {
   background: var(--surface); border: 1px solid var(--line); border-radius: 18px;
-  padding: 22px 22px 24px; margin: 16px 0;
+  padding: 22px 22px 24px; margin: 16px 0; position: relative;
 }
-.replace-panel h3 { margin: 0 0 14px; font-size: 1.2rem; }
+.replace-panel h3 { margin: 0 0 14px; font-size: 1.2rem; padding-right: 44px; }
+.rp-close {
+  position: absolute; top: 16px; right: 16px;
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 2px solid var(--line); background: var(--bg); color: var(--ink);
+  font-size: 1.4rem; line-height: 1; cursor: pointer;
+  display: grid; place-items: center;
+}
+.rp-close:hover { border-color: var(--danger); color: var(--danger); }
+.rp-close:focus-visible { outline: 3px solid var(--accent); }
+.save-input {
+  font: inherit; font-size: 1.1rem; width: 100%; max-width: 380px;
+  padding: 10px 14px; border-radius: 12px; border: 2px solid var(--line);
+  background: var(--bg); color: var(--ink); display: block;
+}
+.save-input:focus { border-color: var(--primary); outline: none; }
 .swap { display: flex; align-items: center; gap: 18px; margin: 16px 0; flex-wrap: wrap; }
 .swap figure { margin: 0; text-align: center; }
 .swap .thumb { width: 96px; height: 128px; margin: 0 auto 6px; }
@@ -175,7 +189,7 @@ header p { margin: 0; color: var(--muted); max-width: 36em; }
 .seg button:focus-visible { outline: 4px solid var(--accent); outline-offset: -4px; }
 .ed-save { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 .ed-count { color: var(--muted); font-size: 0.95rem; }
-.ed-hint { margin: 14px 0 0; color: var(--muted); font-size: 1rem; max-width: 40em; }
+.ed-hint { margin: 14px 0 0; color: var(--muted); font-size: 1.1rem; max-width: 40em; }
 .ed-pages { overflow-x: auto; padding: 18px 2px 80px; }
 .ed-page { margin-bottom: 28px; }
 .ed-page-label { text-align: center; color: var(--muted); font-size: 0.9rem; margin: 0 0 6px; }
@@ -233,7 +247,7 @@ input.field[type="checkbox"], input.field[type="radio"] { padding: 0; accent-col
   <!-- START VIEW -->
   <section id="vStart">
     <div class="load-card">
-      <p>Open one or more PDFs (or photos) to get started. They'll be combined into one.</p>
+      <p>Choose one or more PDF files (or photos) from your computer.<br>They will be joined together into a single PDF.</p>
       <button id="lPick" class="btn primary">Choose files</button>
       <input id="lInput" type="file" multiple accept="application/pdf,.pdf,image/*" class="vh" tabindex="-1">
       <p id="lStatus" class="status" role="status"></p>
@@ -250,18 +264,19 @@ input.field[type="checkbox"], input.field[type="radio"] { padding: 0; accent-col
           Add files
         </button>
         <input id="wAddInput" type="file" multiple accept="application/pdf,.pdf,image/*" class="vh" tabindex="-1">
-        <button id="wEditBtn" class="btn sm">Edit text</button>
+        <button id="wEditBtn" class="btn sm">Edit Text in PDF</button>
         <button id="wSaveBtn" class="btn sm primary">Save PDF</button>
       </div>
     </div>
 
     <p id="wStatus" class="status" role="status"></p>
-    <p class="hint" style="margin-bottom:12px">Tap a page to replace it. Drag to reorder. Hover to delete.</p>
+    <p class="hint" style="margin-bottom:12px">Step 1: Tap a page thumbnail to swap it out.<br>Step 2: Drag pages left or right to change their order.<br>Step 3: Press <strong>Save PDF</strong> when you are done.</p>
 
     <div id="wPages" class="pages" role="list" aria-label="Pages"></div>
 
     <!-- Replace panel (shown below grid when page tapped) -->
     <div id="wReplace" class="replace-panel" hidden>
+      <button id="wRCancelBtn" class="rp-close" aria-label="Close replace panel">&times;</button>
       <h3>Replace page <span id="wRNum"></span></h3>
       <div id="wRNewPicked" class="picked" hidden>
         <div class="thumb" id="wRNewThumb"></div>
@@ -285,14 +300,24 @@ input.field[type="checkbox"], input.field[type="radio"] { padding: 0; accent-col
         </figure>
       </div>
       <div class="row-actions">
-        <button id="wRCancelBtn" class="btn sm">Cancel</button>
-        <button id="wRApplyBtn" class="btn sm primary" disabled>Replace page</button>
+        <button id="wRApplyBtn" class="btn primary" disabled>Confirm Replacement</button>
       </div>
       <p id="wRStatus" class="status" role="status"></p>
     </div>
 
+    <!-- Save panel -->
+    <div id="wSavePanel" class="replace-panel" hidden>
+      <button id="wSaveCancelBtn" class="rp-close" aria-label="Cancel save">&times;</button>
+      <h3>Save as</h3>
+      <label for="wSaveInput" class="hint" style="margin:0 0 8px;display:block">Filename</label>
+      <input id="wSaveInput" type="text" class="save-input" autocomplete="off" spellcheck="false">
+      <div class="row-actions">
+        <button id="wSaveConfirmBtn" class="btn sm primary">Save</button>
+      </div>
+    </div>
+
     <p id="wAddStatus" class="status" role="status"></p>
-    <button id="wStartOver" class="back-btn" style="margin-top:40px; color:var(--muted); font-size:0.95rem">Start over</button>
+    <button id="wStartOver" class="back-btn" style="margin-top:40px; color:var(--muted); font-size:1rem">Start Over (clear all)</button>
   </section>
 
   <!-- EDITOR VIEW -->
@@ -377,14 +402,6 @@ input.field[type="checkbox"], input.field[type="radio"] { padding: 0; accent-col
     } catch (e) {
       return { ok: false, msg: "Saving isn't available here. Try opening in a browser." };
     }
-  }
-
-  function askFilename(defaultName) {
-    const name = window.prompt("Save as:", defaultName);
-    if (name === null) return null;
-    const t = name.trim();
-    if (!t) return null;
-    return t.endsWith(".pdf") ? t : t + ".pdf";
   }
 
   function setStatus(el, text, kind) {
@@ -539,6 +556,7 @@ input.field[type="checkbox"], input.field[type="radio"] { padding: 0; accent-col
   async function enterWorkspace() {
     ws.replaceTarget = null;
     $("#wReplace").hidden = true;
+    $("#wSavePanel").hidden = true;
     document.querySelectorAll("#wPages .page").forEach((p) => p.classList.remove("replacing"));
     $("#wName").textContent = wiz.name + ".pdf";
     $("#eWorkName").textContent = wiz.name + ".pdf";
@@ -548,7 +566,7 @@ input.field[type="checkbox"], input.field[type="radio"] { padding: 0; accent-col
     await refreshPages();
   }
 
-  async function refreshPages() {
+  async function refreshPages(focusIdx) {
     ws.token++;
     const token = ws.token;
     ws.thumbs = [];
@@ -573,22 +591,35 @@ input.field[type="checkbox"], input.field[type="radio"] { padding: 0; accent-col
       const { el, thumbEl } = buildPageCard(i);
       grid.appendChild(el);
       if (pdf) {
-        (function (idx, tEl) {
-          renderPage(pdf, idx, 130).then((c) => {
-            if (token !== ws.token) return;
-            ws.thumbs[idx] = c;
-            fill(tEl, cloneThumb(c));
-          }).catch(function () {});
-        }(i, thumbEl));
+        renderPage(pdf, i, 130).then((c) => {
+          if (token !== ws.token) return;
+          ws.thumbs[i] = c;
+          fill(thumbEl, cloneThumb(c));
+        }).catch(() => {});
       }
+    }
+
+    if (typeof focusIdx === "number") {
+      const target = grid.querySelector(".page[data-index='" + focusIdx + "']");
+      if (target) target.focus();
     }
   }
 
   function buildPageCard(i) {
     const el = document.createElement("div");
     el.className = "page"; el.setAttribute("role", "listitem");
-    el.setAttribute("aria-label", "Page " + (i + 1) + " - tap to replace");
-    el.setAttribute("draggable", "true"); el.dataset.index = i;
+    el.setAttribute("aria-label", "Page " + (i + 1) + " - tap to replace, arrow keys to reorder, Delete to remove");
+    el.setAttribute("draggable", "true"); el.setAttribute("tabindex", "0"); el.dataset.index = i;
+
+    el.addEventListener("keydown", async function (e) {
+      if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        e.preventDefault(); if (i > 0) await reorderPages(i, i - 1);
+      } else if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+        e.preventDefault(); if (i < ws.pageCount - 1) await reorderPages(i, i + 1);
+      } else if (e.key === "Delete" || e.key === "Backspace") {
+        e.preventDefault(); await deletePage(i);
+      }
+    });
 
     const del = document.createElement("button");
     del.type = "button"; del.className = "page-del";
@@ -637,7 +668,7 @@ input.field[type="checkbox"], input.field[type="radio"] { padding: 0; accent-col
     wiz.bytes = await doc.save();
     if (ws.pageGroups.length > i) ws.pageGroups.splice(i, 1);
     if (ws.replaceTarget !== null) hideReplacePanel();
-    await refreshPages();
+    await refreshPages(Math.min(i, ws.pageCount - 2));
   }
 
   async function reorderPages(from, to) {
@@ -655,7 +686,7 @@ input.field[type="checkbox"], input.field[type="radio"] { padding: 0; accent-col
       ws.pageGroups.splice(to, 0, moved);
     }
     hideReplacePanel();
-    await refreshPages();
+    await refreshPages(to);
   }
 
   /* ---------- replace panel ---------- */
@@ -716,10 +747,10 @@ input.field[type="checkbox"], input.field[type="radio"] { padding: 0; accent-col
         const pdf = await openPdfJs(it.bytes);
         if (it.pageCount > 1) {
           $("#wRNewPagesWrap").hidden = false;
-          var drawSub = function () {
+          const drawSub = function () {
             const c = $("#wRNewPages"); c.replaceChildren();
             const slots = [];
-            for (var i = 0; i < it.pageCount; i++) {
+            for (let i = 0; i < it.pageCount; i++) {
               const b = document.createElement("div"); b.className = "page"; b.style.cursor = "pointer";
               b.setAttribute("role", "button"); b.setAttribute("aria-pressed", String(i === ws.replaceNewIndex));
               const th = document.createElement("div"); th.className = "thumb";
@@ -727,16 +758,14 @@ input.field[type="checkbox"], input.field[type="radio"] { padding: 0; accent-col
               const lbl = document.createElement("span"); lbl.className = "label"; lbl.textContent = "p" + (i + 1);
               if (i === ws.replaceNewIndex) b.style.borderColor = "var(--accent)";
               b.append(th, lbl);
-              (function (idx) {
-                b.addEventListener("click", function () { ws.replaceNewIndex = idx; drawSub(); updateReplacePreview(); });
-              }(i));
+              b.addEventListener("click", function () { ws.replaceNewIndex = i; drawSub(); updateReplacePreview(); });
               c.appendChild(b); slots.push(th);
             }
             return slots;
           };
-          var slots = drawSub();
+          const slots = drawSub();
           if (pdf) {
-            for (var i = 0; i < it.pageCount; i++) {
+            for (let i = 0; i < it.pageCount; i++) {
               if (ws.replaceNewItem !== it) break;
               try { ws.replaceNewThumbs[i] = await renderPage(pdf, i, 100); fill(slots[i], cloneThumb(ws.replaceNewThumbs[i])); } catch (e) {}
               if (i === 0) fill($("#wRNewThumb"), cloneThumb(ws.replaceNewThumbs[0]));
@@ -764,12 +793,12 @@ input.field[type="checkbox"], input.field[type="radio"] { padding: 0; accent-col
         doc.removePage(i); doc.insertPage(i, copied[0]);
       } else {
         const old = doc.getPage(i);
-        var sz = old.getSize();
-        var width = sz.width, height = sz.height;
+        const sz = old.getSize();
+        let width = sz.width, height = sz.height;
         const rot = ((old.getRotation().angle % 360) + 360) % 360;
-        if (rot === 90 || rot === 270) { var tmp = width; width = height; height = tmp; }
+        if (rot === 90 || rot === 270) [width, height] = [height, width];
         const imgLandscape = ws.replaceNewItem.width > ws.replaceNewItem.height;
-        if (imgLandscape !== (width > height)) { var tmp2 = width; width = height; height = tmp2; }
+        if (imgLandscape !== (width > height)) [width, height] = [height, width];
         doc.removePage(i);
         await addImagePage(doc, ws.replaceNewItem, [width, height], i);
       }
@@ -818,16 +847,35 @@ input.field[type="checkbox"], input.field[type="radio"] { padding: 0; accent-col
     }
   });
 
-  /* ---------- save ---------- */
-  $("#wSaveBtn").addEventListener("click", async function () {
+  /* ---------- save panel ---------- */
+  function normFilename(v) {
+    const t = v.trim(); if (!t) return null;
+    return t.endsWith(".pdf") ? t : t + ".pdf";
+  }
+  function showSavePanel() {
+    hideReplacePanel();
+    $("#wSaveInput").value = wiz.name + ".pdf";
+    $("#wSavePanel").hidden = false;
+    $("#wSaveInput").focus(); $("#wSaveInput").select();
+  }
+  function hideSavePanel() { $("#wSavePanel").hidden = true; }
+  async function doSave() {
+    const name = normFilename($("#wSaveInput").value);
+    if (!name) { $("#wSaveInput").focus(); return; }
+    hideSavePanel();
     const btn = $("#wSaveBtn"), st = $("#wStatus");
-    const name = askFilename(wiz.name + ".pdf");
-    if (!name) return;
     busy(btn, true, "Saving...");
     const res = await saveFile(wiz.bytes, name);
     busy(btn, false);
     if (res.ok) setStatus(st, "Saved as “" + name + "”.", "ok");
     else setStatus(st, res.msg, "err");
+  }
+  $("#wSaveBtn").addEventListener("click", function () { showSavePanel(); });
+  $("#wSaveCancelBtn").addEventListener("click", function () { hideSavePanel(); });
+  $("#wSaveConfirmBtn").addEventListener("click", doSave);
+  $("#wSaveInput").addEventListener("keydown", function (e) {
+    if (e.key === "Enter") { e.preventDefault(); doSave(); }
+    else if (e.key === "Escape") { e.preventDefault(); hideSavePanel(); }
   });
 
   /* ---------- start over ---------- */
